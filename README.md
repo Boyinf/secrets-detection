@@ -8,6 +8,7 @@ The “Secret Detection” tool was developed with the aim of checking secret le
 
 ### GitLab
 
+```bash
 stages:
   - secret-detection
 
@@ -24,4 +25,5 @@ secrets_scan:
   artifacts:
     paths:
       - secrets_report.json  # Salva o relatório gerado
+```
 
