@@ -4,7 +4,7 @@ Este documento descreve as diretrizes de segurança e responsabilidade para o us
 
 ## Privacidade e Exposição de Dados na Pipeline
 
-Este projeto realiza varreduras em busca de segredos sensíveis (como chaves de API, senhas, e outros dados confidenciais) em código-fonte. O a ferramenta utiliza apenas recursos nativos do Python. No entanto, a exposição de dados sensíveis pode ocorrer no contexto da execução dentro de pipelines de CI/CD, dependendo de como a ferramenta é configurada.
+Este projeto realiza varreduras em busca de segredos sensíveis (como chaves de API, senhas, e outros dados confidenciais) em código-fonte. A ferramenta utiliza apenas recursos nativos do Python. No entanto, a exposição de dados sensíveis pode ocorrer no contexto da execução dentro de pipelines de CI/CD, dependendo de como a ferramenta é configurada.
 
 ### Responsabilidade do Usuário:
 
