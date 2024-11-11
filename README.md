@@ -1,36 +1,27 @@
-# Security Header Scan (shscan)
+# Secrets-detection
 
-<p align="center">
-    <img src="Owasp-juice.png" alt="Result of the Owasp-juice" />
-</p>
+## Secrets-detection:
 
-## SHScan description:
-
-The "SHScan" tool was developed with the purpose of assisting in checking the security headers enabled on specific or internal websites. Created to simplify this process, the tool is notable for its simplicity and efficiency, representing the result in an intuitive way.
-
-Its operation is straightforward: by providing a URL as input, the tool checks the security headers associated with the website and generates a detailed report indicating which are enabled or not.
-
-Although its initial implementation is basic, the tool demonstrates great potential for improvement and expansion. The code is open for contributions and suggestions for improvement, and the developer is receptive to any form of collaboration to make the tool more robust and useful for the community.
+The “Secret Detection” tool was developed with the aim of checking secret leaks during the pipeline. Created to simplify this process, the tool stands out for its efficiency in analyzing the repository and with its regex, representing the result intuitively through a JSON report.
 
 ## How to run:
 
-### Pypi
-```bash
-pip install shscan
-shscan https://example.com.br
-```
+### GitLab
 
-### From source
-```bash
-git clone https://github.com/boyinf/shscan && cd shscan
-python ./shscan.py https://example.com.br
-```
+stages:
+  - secret-detection
 
-## Usage
-```
-Usage: shscan <target>
+secrets_scan:
+  stage: secret-detection
+  image: python:3.13.0
+  script:
+    - python3 -m venv venv  # Cria um ambiente virtual
+    - source venv/bin/activate  # Ativa o ambiente virtual
+    - pip install --upgrade pip  # Atualiza o pip no ambiente virtual
+    - pip uninstall -y secrets-detection  # Desinstala a versão anterior
+    - pip install --upgrade --no-cache-dir secrets-detection==0.1.3  # Instala a versão desejada do pacote
+    - scan-secrets  # Executa o script de análise de segredos
+  artifacts:
+    paths:
+      - secrets_report.json  # Salva o relatório gerado
 
-Options:
-  -h              Open help menu
-  -ssl            Test the URL with SSL enabled.
-```
