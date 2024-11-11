@@ -31,6 +31,6 @@ secrets_scan:
     - deactivate  
   artifacts:
     paths:
-      - secrets_report.json  # Salva o relatório gerado
+      - secrets_report.json
 ```
 
